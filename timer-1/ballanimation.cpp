@@ -21,11 +21,16 @@ void BallAnimation::addToOrigin(const QPoint &point)
     m_origin += point;
 }
 
+void BallAnimation::collision()
+{
+
+}
+
 
 void BallAnimation::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
-    painter.drawRect(QRect(0,0,width()-1,height()-1));
+    painter.drawRect(QRect(0,0,width(),height()));
     painter.setBrush(Qt::blue);
     painter.setPen(Qt::red);
     painter.drawEllipse(m_origin,10,10);
