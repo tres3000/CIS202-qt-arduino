@@ -1,10 +1,11 @@
 #ifndef BALLANIMATION_H
 #define BALLANIMATION_H
-#include <QGraphicsScene>
-#include <QWidget>
 #include <QPaintEvent>
 #include <QPainter>
-#include <QGraphicsItem>
+#include<QGraphicsItem>
+#include<QGraphicsScene>
+#include<QDebug>
+#include<QWidget>
 
 class BallAnimation : public QWidget
 {
@@ -13,8 +14,10 @@ public:
     explicit BallAnimation(QWidget *parent = nullptr);
     void setOrigin(const QPoint &origin);
     void addToOrigin(const QPoint &origin);
-    void collision();
-
+    void setMove(int mv_x, int mv_y);
+    void cDetect(int mv_x, int mv_y);
+    int randomGen_x();
+    int randomGen_y();
 
 signals:
 
@@ -23,6 +26,8 @@ public slots:
 
 private:
     QPoint m_origin;
+    int xMod = 1;
+    int yMod = 1;
 };
 
 #endif // BALLANIMATION_H

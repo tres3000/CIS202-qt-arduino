@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(readData()));
     timer->start(50);
     banimate->move(QPoint(100,100));
+    setFixedSize(300,300);
 }
 
 MainWindow::~MainWindow()
@@ -80,7 +81,8 @@ void MainWindow::readData()
     //m_buffer = QString("%1" ).arg( QDateTime::currentDateTime().toTime_t() );
     //processMessage(m_buffer);
 
-    banimate->addToOrigin(QPoint(1,1));
+    //banimate->addToOrigin(QPoint(1,1));
+    banimate->setMove(1,1);
     banimate->repaint();
 
     processMessage(QString("%1 %2").arg(count).arg(QDateTime::currentDateTime().toTime_t()));
